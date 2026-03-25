@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Marlbs | Design Studio",
-  description: "",
+  description: "Dubai UX & UI design studio specialising in luxury real estate, design systems, landing pages and CRM journeys. MARLBS, where strategy meets craft.",
 };
 
 export default function RootLayout({
