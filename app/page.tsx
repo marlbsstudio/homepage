@@ -1,65 +1,69 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Mail, Globe, MessageCircle, ArrowRight } from "lucide-react";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="relative min-h-screen flex flex-col items-center justify-center p-6 sm:p-24 overflow-hidden">
+      {/* Background Mesh */}
+      <div className="bg-mesh" />
+
+      <motion.main
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="z-10 w-full max-w-2xl flex flex-col items-center text-center space-y-8 gap:12 md:gap-16"
+      >
+        {/* Logo/Brand */}
+        <motion.div variants={itemVariants} className="mb-8">
+          <Image
+            src="/logo.png"
+            alt="Marlbs Logo"
+            width={320}
+            height={320}
+            className="h-20 w-auto"
+            quality={100}
+            priority
+          />
+        </motion.div>
+
+        {/* Heading */}
+        <motion.div variants={itemVariants} className="space-y-4">
+          <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-gradient">
+            Something <span className="font-bold text-[#2805fe]">amazing</span>{" "}
+            <br /> is on its way.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-zinc-500 text-lg sm:text-xl max-w-lg mx-auto">
+            We&apos;re working hard to bring you the best experience possible.
+            Stay tuned for the launch!
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
+
+      {/* Footer */}
+      <footer className="absolute bottom-6 text-zinc-600 text-sm font-medium">
+        © {new Date().getFullYear()} Marlbs. All rights reserved.
+      </footer>
     </div>
   );
 }
