@@ -334,14 +334,15 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
 h2.big{font-size:clamp(44px,5.4vw,88px);margin:0 0 24px}
 
 /* Now */
-.now-head{grid-template-columns:7fr 4fr;margin-bottom:clamp(80px,9vw,140px)}
+.now-head{margin-bottom:clamp(64px,9vw,140px)}
+@media (min-width:861px){.now-head{grid-template-columns:7fr 4fr}.with{grid-template-columns:4fr 7fr}}
 .now-head p{font-size:16px;line-height:1.65}
 .pipe{margin-bottom:56px}
 .pipe button strong{font-size:clamp(19px,1.8vw,26px)}
 .ppanel > div{padding-top:32px;padding-right:40px}
 .ppanel > div+div{padding-left:40px}
 .ppanel p{font-size:15.5px;line-height:1.65;color:var(--muted)}
-.with{margin-top:clamp(140px,15vw,220px);grid-template-columns:4fr 7fr;gap:clamp(40px,8vw,140px)}
+.with{margin-top:clamp(110px,15vw,220px);gap:clamp(28px,8vw,140px)}
 .with h3{font-size:clamp(30px,3.2vw,48px);margin-bottom:24px}
 .with > div > p{font-size:16px;line-height:1.65}
 .steps li{grid-template-columns:56px 1fr;padding:28px 0}
@@ -365,3 +366,43 @@ h2.big{font-size:clamp(44px,5.4vw,88px);margin:0 0 24px}
 .pills span{font-size:clamp(15px,1.3vw,18px);padding:9px 18px}
 .ledger-head h2{font-size:clamp(44px,5.4vw,88px)}
 .when{font-size:clamp(48px,5vw,80px)}
+
+/* ---------- Phone fixes ---------- */
+@media (max-width:860px){
+  /* solid top bar so text doesn't slide under the logo */
+  .top{background:rgba(15,15,14,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--faint);padding-top:calc(env(safe-area-inset-top,0px) + 10px);padding-bottom:10px}
+  /* opaque menu */
+  .menu{background:rgba(15,15,14,.96);align-content:center;gap:0}
+  .menu nav a{font-size:clamp(44px,13vw,64px);line-height:1.08}
+  .menu aside{margin-top:36px}
+  /* story text */
+  .s0 p{font-size:15px}
+  .panel{bottom:calc(env(safe-area-inset-bottom,0px) + 92px)}
+  .panel .idx{margin-bottom:12px}
+  .panel .idx b{font-size:34px}
+  .panel h2{font-size:clamp(32px,9vw,46px);margin-bottom:12px}
+  .panel p{font-size:14.5px;line-height:1.55;margin:0}
+  /* sections */
+  .wrap{padding-top:96px;padding-bottom:96px}
+  h2.big{font-size:clamp(40px,11vw,56px)}
+  .now-head{gap:20px}
+  .now-head p{font-size:15.5px}
+  .with h3{font-size:clamp(30px,8.5vw,40px)}
+  .steps li{grid-template-columns:40px 1fr;padding:22px 0}
+  .reveal{font-size:clamp(26px,7.4vw,34px)}
+  .case > button{padding:20px 0;gap:8px 16px}
+  .case h3{font-size:20px;line-height:1.15}
+  .ledger-head h2{font-size:clamp(40px,11vw,56px)}
+  .when{font-size:52px}
+  .tabs button{font-size:28px;padding:18px 0}
+  .contact h2{font-size:clamp(48px,14vw,72px)}
+  .mail{font-size:clamp(22px,6.4vw,30px)}
+  .flinks{margin-top:48px}
+  /* smaller floating call to action */
+  .badge-talk{padding:11px 18px 11px 20px;font-size:15px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px)}
+}
+@media (max-width:380px){
+  .panel h2{font-size:30px}
+  .panel p{font-size:14px}
+  .fcols{grid-template-columns:1fr}
+}
