@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MARLBS · Mustafa Kapadiya, Senior UI/UX Product Designer, Dubai</title>
-<meta name="description" content="Mustafa Kapadiya, Senior UI/UX Product Designer in Dubai. From Pune to Dubai: craft, government journeys, design systems, and now AI and HubSpot.">
+<meta name="description" content="Mustafa Kapadiya, Senior UI/UX Product Designer in Dubai. From Pune to Dubai: craft, enterprise products, government design systems and service journeys, and now AI and HubSpot.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -327,14 +327,11 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
 @media (max-width:960px){.fcols{grid-template-columns:1fr 1fr}.fcols > div{border-left:0;border-top:1px solid var(--faint);padding:22px 10px 26px}.fcols > div:first-child{grid-column:1/-1;border-top:0}}
 @media (max-width:560px){.fbar{grid-template-columns:1fr;text-align:left}.fbar span:last-child{text-align:left}}
 
-/* Round "say hi" badge, as on brand-nw */
-.badge-talk{transition:transform .35s,opacity .4s;position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);transform:translateX(-50%);z-index:58;width:86px;height:86px;border-radius:50%;border:0;padding:0;background:var(--accent);color:var(--fg);cursor:pointer;display:grid;place-items:center;box-shadow:0 12px 40px rgba(0,0,0,.45);transition:transform .35s}
-.badge-talk:hover{transform:translateX(-50%) scale(1.07)}
-.badge-talk svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 14s linear infinite}
-.badge-talk svg.ring text{font-family:var(--mono);font-size:8.6px;letter-spacing:1.6px;fill:var(--fg);text-transform:uppercase}
-.badge-talk .arrow{width:18px;height:18px}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (max-width:760px){.badge-talk{width:72px;height:72px}}
+/* Rounded "Let's talk" call to action */
+.badge-talk{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);transform:translateX(-50%);z-index:58;display:flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:14px 24px 14px 26px;background:var(--accent);color:#fff;font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:-.01em;cursor:pointer;box-shadow:0 12px 36px rgba(255,59,29,.28),0 6px 20px rgba(0,0,0,.4);transition:transform .3s,background .3s,opacity .4s}
+.badge-talk:hover{transform:translateX(-50%) translateY(-3px);background:#ff5236}
+.badge-talk svg{width:16px;height:16px;transition:transform .3s}
+.badge-talk:hover svg{transform:translate(2px,-2px)}
 </style>
 </head>
 <body>
@@ -376,9 +373,9 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
     <nav class="chaps" id="chaps" aria-label="Journey chapters">
       <button data-c="0"><b>Hello</b><i></i></button>
       <button data-c="1"><b>Pune, 2011</b><i></i></button>
-      <button data-c="2"><b>Dubai, 2016</b><i></i></button>
+      <button data-c="2"><b>Enterprise, 2016</b><i></i></button>
       <button data-c="3"><b>Government, 2023</b><i></i></button>
-      <button data-c="4"><b>MOHRE, 2024</b><i></i></button>
+      <button data-c="4"><b>Dubai, 2024</b><i></i></button>
       <button data-c="5"><b>Now</b><i></i></button>
       <button data-c="6"><b>Worldwide</b><i></i></button>
     </nav>
@@ -396,7 +393,7 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
     </div>
 
     <div class="scene panel" data-scene="2">
-      <div class="idx"><b>2016</b><span>The move to Dubai</span></div>
+      <div class="idx"><b>2016</b><span>Tech Mahindra</span></div>
       <h2 class="display"><span class="dim">Enterprise data,</span> made usable.</h2>
       <p>At Tech Mahindra I led UX for AT&amp;T, T-Mobile and EY: a CRM portal for customer data at scale, a payment rule engine, and chatbot-assisted finance workflows.</p>
       <div class="chips"><span>AT&amp;T</span><span>T-Mobile</span><span>EY</span><span>SAP Fiori</span></div>
@@ -405,19 +402,19 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
     <div class="scene panel" data-scene="3">
       <div class="idx"><b>2023</b><span>My first government work</span></div>
       <h2 class="display"><span class="dim">Systems</span> before screens.</h2>
-      <p>With Conceptualize, the UAE Government Design System 2.0 for TDRA and the Traffic Control Portal for Abu Dhabi Mobility on TAMM: foundations, components and accessibility rules built for federal adoption.</p>
+      <p>With Conceptualize, I designed and delivered the UAE Government Design System 2.0 with TDRA, and the traffic control CRM portal for Abu Dhabi Mobility: foundations, components and accessibility rules built for federal adoption.</p>
       <div class="chips"><span>designsystem.gov.ae</span><span>TDRA</span><span>TAMM</span></div>
     </div>
 
     <div class="scene panel" data-scene="4">
-      <div class="idx"><b>2024</b><span>MOHRE, Dubai</span></div>
+      <div class="idx"><b>2024</b><span>The move to Dubai</span></div>
       <h2 class="display"><span class="dim">Journeys that</span> survive compliance.</h2>
-      <p>Back with Tech Mahindra, I led UX for MOHRE across web and mobile: submission, approval and status-tracking journeys, designed so every branch of a government service still feels simple.</p>
+      <p>In December 2024 I moved to Dubai to lead UX for MOHRE, the Ministry of Human Resources and Emiratisation: submission, approval and status-tracking journeys across web and mobile, designed so every branch of a government service still feels simple.</p>
       <div class="chips"><span>MOHRE</span><span>Web + mobile</span><span>Service design</span></div>
     </div>
 
     <div class="scene panel" data-scene="5">
-      <div class="idx"><b>Now</b><span>Dubai Sotheby’s</span></div>
+      <div class="idx"><b>2025</b><span>Dubai Sotheby’s, since August</span></div>
       <h2 class="display"><span class="dim">AI and CRM,</span> wired together.</h2>
       <p>Today I design the Agent App for UHNW property and the lead journeys around it, with HubSpot to capture and nurture, AI to summarise and suggest, and a person always making the final call.</p>
       <div class="chips"><span>Salesforce</span><span>HubSpot</span><span>Claude</span><span>Figma</span></div>
@@ -504,9 +501,9 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
     <div class="track" id="track">
       <div class="step"><span class="city">Pune</span><div class="when">2011</div><div class="until">Feb 2011 to Jun 2015</div><h3>AffinityX</h3><p>Associate Manager, Creative</p></div>
       <div class="step"><span class="city">Pune</span><div class="when">2015</div><div class="until">Jul 2015 to Oct 2016</div><h3>Digital Convergence Technologies</h3><p>Design Lead</p></div>
-      <div class="step"><span class="city">Dubai</span><div class="when">2016</div><div class="until">Nov 2016 to Jul 2025</div><h3>Tech Mahindra</h3><p>Lead UX Designer for AT&amp;T, T-Mobile and EY, then MOHRE from 2024</p></div>
+      <div class="step"><span class="city">India, then Dubai</span><div class="when">2016</div><div class="until">Nov 2016 to Jul 2025</div><h3>Tech Mahindra</h3><p>Lead UX Designer for AT&amp;T, T-Mobile and EY, then MOHRE in Dubai from December 2024</p></div>
       <div class="step fl"><span class="city">Remote, USA</span><div class="when">2021</div><div class="until">Nov 2021 to Aug 2025</div><h3>PHP Agency Inc.</h3><p>Product Design Consultant</p></div>
-      <div class="step fl"><span class="city">Dubai</span><div class="when">2023</div><div class="until">Mar 2023 to Dec 2024</div><h3>Conceptualize</h3><p>Interface and Interaction Designer</p></div>
+      <div class="step fl"><span class="city">Remote</span><div class="when">2023</div><div class="until">Mar 2023 to Dec 2024</div><h3>Conceptualize</h3><p>Interface and Interaction Designer: UAE Design System 2.0 with TDRA, and Abu Dhabi Mobility</p></div>
       <div class="step"><span class="city">Dubai</span><div class="when">2025</div><div class="until">Aug 2025 to now</div><h3>Dubai Sotheby’s International Realty</h3><p>Senior UI/UX Product Designer, with AI and HubSpot in the workflow</p><span class="nowpill">Current role</span></div>
     </div>
     <div class="bar"><span id="bar"></span></div>
@@ -565,7 +562,7 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
     </div>
     <div>
       <h4>Journey</h4>
-      <button data-chap="1">Pune, 2011</button><button data-chap="2">Dubai, 2016</button><button data-chap="3">Government, 2023</button><button data-chap="4">MOHRE, 2024</button><button data-chap="5">Now</button>
+      <button data-chap="1">Pune, 2011</button><button data-chap="2">Enterprise, 2016</button><button data-chap="3">Government, 2023</button><button data-chap="4">Dubai, 2024</button><button data-chap="5">Now</button>
     </div>
     <div>
       <h4>Practice</h4>
@@ -580,7 +577,7 @@ h2.big{font-size:clamp(50px,8vw,132px);margin:0 0 30px}
   <div class="fbar"><span>© MARLBS 2026</span><span>Articulation · with · logic</span><span>Dubai · UAE</span></div>
 </footer>
 
-<button class="badge-talk" data-talk aria-label="Let’s talk"><svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#circ">Let’s talk · MARLBS · Articulation with logic ·</textPath></text></svg><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></button>
+<button class="badge-talk" data-talk>Let’s talk<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></button>
 
 <div class="scrim" id="scrim" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
   <div class="sheet">
@@ -675,7 +672,7 @@ const hash=n=>{const s=Math.sin(n*12.9898)*43758.5453;return s-Math.floor(s);};
   }
 })();
 
-/* SHAPE 2 — Dubai 2016: enterprise CRM dashboard with a chat assistant */
+/* SHAPE 2 — Enterprise 2016: enterprise CRM dashboard with a chat assistant */
 (function(){
   const P=SHP[2], C=SHC[2];
   const parts=[['o',0,0,2.1,1.4,.06,0,0,8],['o',-.9,0,.18,1.26,.04,0,5,2],
@@ -695,7 +692,7 @@ const hash=n=>{const s=Math.sin(n*12.9898)*43758.5453;return s-Math.floor(s);};
   }
 })();
 
-/* SHAPE 4 — MOHRE 2024: a government service journey */
+/* SHAPE 4 — Dubai 2024, MOHRE: a government service journey */
 const FN=[['Start',-.98,0],['Submit',-.56,0],['Review',-.1,0],['Approve',.4,.55],['More info',.4,-.55],['Track status',.9,.55]];
 const FE=[[0,1],[1,2],[2,3],[2,4],[4,1,1],[3,5]];
 function edgePoint(e,s){ const a=FN[e[0]], b=FN[e[1]];
@@ -917,9 +914,9 @@ setStage(0);
 const CASES=[
   ['Dubai Sotheby’s International Realty','2025 to now','Agent App for UHNW portfolios',['End-to-end design of a Salesforce-based Agent App covering portfolios across the UAE, KSA and UK.','CRM workflows for reservation agreements, lead management and the full deal lifecycle.','Data-driven sales pipeline views that improve tracking, visibility and efficiency.'],['Salesforce','CRM','Web + mobile','UI system']],
   ['Current practice','2025 to now','AI and HubSpot lead journeys',['Lead journeys from first enquiry to agent hand-over, designed across HubSpot and the agent tools.','AI-assisted steps for summaries, copy drafts and next-best actions, with a person approving each one.','Working HTML prototypes built with Claude so ideas can be tested in a browser early.'],['HubSpot','Claude','AI UX','Prototyping'],true],
-  ['TDRA, via Conceptualize','2023 to 2024','UAE Government Design System 2.0',['Delivered the federal design system for adoption across UAE government entities.','Defined foundations, components, patterns and accessibility guidelines.','Designed and launched designsystem.gov.ae.'],['Design system','Accessibility','Gov.ae']],
-  ['Abu Dhabi Mobility, TAMM','2023 to 2024','Traffic Control Portal',['Designed the traffic control portal inside the TAMM ecosystem.','Scalable UI for dashboards, workflows and service interfaces.'],['Dashboards','Gov services','Abu Dhabi']],
-  ['MOHRE, via Tech Mahindra','2024 to 2025','Ministry of Human Resources and Emiratisation platforms',['Led UX/UI for MOHRE web and mobile, structuring government service journeys.','Submission, approval and status-tracking flows aligned with compliance.'],['Web + mobile','Compliance','Service design']],
+  ['TDRA, via Conceptualize','2023 to 2024','UAE Government Design System 2.0',['Designed and successfully delivered the federal design system for adoption across UAE government entities.','Defined foundations, components, patterns and accessibility guidelines.','Designed and launched designsystem.gov.ae.'],['Design system','Accessibility','Gov.ae']],
+  ['Abu Dhabi Mobility, via Conceptualize','2023 to 2024','Traffic control CRM portal',['Designed the traffic control CRM portal for Abu Dhabi Mobility, inside the TAMM ecosystem.','Scalable UI for dashboards, workflows and service interfaces.'],['Dashboards','Gov services','Abu Dhabi']],
+  ['MOHRE, Dubai','Dec 2024 to Jul 2025','Ministry of Human Resources and Emiratisation platforms',['Moved to Dubai to lead UX/UI for MOHRE web and mobile, structuring government service journeys.','Submission, approval and status-tracking flows aligned with compliance.'],['Web + mobile','Compliance','Service design']],
   ['PHP Agency Inc.','2021 to 2025','Financial workflows and agent analytics',['Policy purchase, onboarding and client lifecycle journeys.','Dashboards for commissions, earnings and agent performance.','Journeys optimised for lead conversion and reporting.'],['Fintech','Insurance','Dashboards','USA']],
   ['EY, via Tech Mahindra','2016 to 2025','Finance automation with chatbot assistance',['Chatbot-assisted service workflows for finance automation.','Conversational flows built around intents and automated hand-offs.'],['Conversational AI','Automation']],
   ['AT&T, via Tech Mahindra','2016 to 2025','Customer data CRM portal',['CRM portal focused on filtering, mapping and managing customer data at scale.'],['CRM','Enterprise','Data UX']],
