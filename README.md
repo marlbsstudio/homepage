@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MARLBS — Mustafa Kapadiya portfolio
 
-## Getting Started
+Articulation with logic. A Next.js site for Mustafa Kapadiya, Senior UI/UX Product Designer, Dubai.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| File | What it holds |
+| --- | --- |
+| `app/portfolio-markup.ts` | All page content and structure (journey chapters, about, now, experience, contact, footer) |
+| `app/portfolio.css` | All styles. Colours and fonts are the variables at the top |
+| `public/portfolio.js` | Behaviour: particle journey, scroll-blended backgrounds, menu, case list, lead journey, toolbox, Let's talk form |
+| `app/layout.tsx` | Fonts (Inter Tight, Geist Mono), page title, description, social preview |
+| `public/mustafa-kapadiya.webp` | Portrait |
+| `public/favicon.svg` | Browser tab icon |
 
-## Learn More
+Case studies, lead-journey moments and toolbox items are the `CASES`, `STAGES` and `TB` lists in `public/portfolio.js`.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Push to GitHub and import the repo in Vercel (or redeploy if it's already connected). No settings needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you use a custom domain, add an environment variable `NEXT_PUBLIC_SITE_URL` with the full address (for example `https://marlbs.com`) so LinkedIn and WhatsApp previews use the right image link.
 
-## Deploy on Vercel
+## Fonts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The design follows brand-nw.com, which uses Suisse Int'l (a paid font). Inter Tight is the free match. If you license Suisse Int'l, add its `@font-face` rules to `app/portfolio.css`; it is already first in the font list.
