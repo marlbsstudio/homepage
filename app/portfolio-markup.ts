@@ -143,7 +143,6 @@ export const markup = `
         <li><div><b>Prototypes in real code</b><span>Moving from Figma to working HTML prototypes that stakeholders can click through in a browser on day one.</span></div></li>
         <li><div><b>Design QA</b><span>Reviewing builds for accessibility, consistency with the design system, and copy that drifted from the spec.</span></div></li>
       </ol>
-      <p class="meta-note"><b>Made this way.</b> This portfolio was rebuilt with Claude, from the copy to the particle journey you just scrolled through.</p>
     </div>
   </div>
 </section>
