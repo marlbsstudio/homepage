@@ -186,7 +186,7 @@ function buildText(){
   }
   const n=pts.length/2;
   for(let k=0;k<N;k++){const i=n?Math.floor(Math.random()*n):0; A[k*2]=(pts[i*2]||W/2)+Math.random()*step*.6; A[k*2+1]=(pts[i*2+1]||H/2)+Math.random()*step*.6; const r=Math.random(); cA[k]=r<.07?1:(r<.2?2:0);
-    DR[k*2]=Math.random()*W; DR[k*2+1]=Math.random()*H; const q=Math.random(); cDR[k]=q<.5?6:(q<.82?5:(q<.94?2:1));}
+    DR[k*2]=Math.random()*W; DR[k*2+1]=Math.random()*H; const q=Math.random(); cDR[k]=q<.62?6:(q<.9?5:2);}
 }
 const NP=small?40:90, PX=new Float32Array(NP),PY=new Float32Array(NP),PZ=new Float32Array(NP),PS=new Float32Array(NP);
 function seedPollen(){for(let i=0;i<NP;i++){PX[i]=Math.random()*W;PY[i]=Math.random()*H;PZ[i]=Math.random();PS[i]=.15+Math.random()*.6;}}
@@ -233,6 +233,7 @@ function frame(now){
   ctx.fillStyle=glow; ctx.fillRect(0,0,W,H);
 
   ctx.globalCompositeOperation='lighter';
+  ctx.globalAlpha=1-.75*dz;
   for(let q=0;q<NP;q++){ if(!reduce){PY[q]-=PS[q]*.3;PX[q]+=Math.sin(time*.5+q)*.15;} if(PY[q]<-40){PY[q]=H+40;PX[q]=Math.random()*W;}
     const b=Math.min(BL-1,1+Math.floor(PZ[q]*4)), sz=4+PZ[q]*26; ctx.drawImage(SPR[q%5===0?1:(q%3===1?2:0)][b],PX[q]-sz/2,PY[q]-sz/2,sz,sz);}
 
@@ -249,7 +250,7 @@ function frame(now){
     if(mActive&&!reduce){const dx=X[k]-mx,dy=Y[k]-my,d2=dx*dx+dy*dy;if(d2<R2){const d=Math.sqrt(d2)||1,fp=(1-d/R)*5.5;ax+=dx/d*fp-dy/d*fp*.35;ay+=dy/d*fp+dx/d*fp*.35;}}
     VX[k]=(VX[k]+ax)*.84;VY[k]=(VY[k]+ay)*.84;X[k]+=VX[k];Y[k]+=VY[k];COL[k]=col;DEP[k]=pz;
   }
-  ctx.globalAlpha=1-.62*dz;
+  ctx.globalAlpha=1-.8*dz;
   for(let k=0;k<N;k++){const c=COL[k], b=Math.min(BL-1,Math.floor(Math.abs(DEP[k])*3.4)), sz=SZ[c]*(i===0&&t<.5?2.3:1.9)*(1+b*1.25)*(1-DEP[k]*.25);
     ctx.drawImage(SPR[c][b],X[k]-sz/2,Y[k]-sz/2,sz,sz);}
   ctx.globalAlpha=1; ctx.globalCompositeOperation='source-over';
@@ -336,7 +337,7 @@ const CASES=[
   ['T-Mobile, via Tech Mahindra','2016 to 2025','Payment rule engine',['Contributed to rule engine design for payment workflows and decision-based systems.','Enterprise patterns following SAP Fiori principles.'],['Rule engine','Payments','SAP Fiori']]
 ];
 const cases=document.getElementById('cases');
-cases.innerHTML=CASES.map((c,i)=>`<li class="case" data-open="${i===0}"><button aria-expanded="${i===0}" aria-controls="cb${i}"><span class="client">${c[0]}${c[5]?'<span class="new">New</span>':''}</span><h3>${c[2]}</h3><span class="plus" aria-hidden="true"></span></button>
+cases.innerHTML=CASES.map((c,i)=>`<li class="case" data-open="false"><button aria-expanded="false" aria-controls="cb${i}"><span class="client">${c[0]}${c[5]?'<span class="new">New</span>':''}</span><h3>${c[2]}</h3><span class="plus" aria-hidden="true"></span></button>
   <div class="body" id="cb${i}"><div class="inner"><div class="cols"><div class="meta">${c[1]}</div><ul>${c[3].map(b=>'<li>'+b+'</li>').join('')}</ul><div class="tags">${c[4].map(t=>'<span>'+t+'</span>').join('')}</div></div></div></div></li>`).join('');
 cases.querySelectorAll('.case > button').forEach(b=>b.addEventListener('click',()=>{const li=b.parentElement, o=li.dataset.open!=='true';
   cases.querySelectorAll('.case').forEach(x=>{x.dataset.open='false';x.querySelector('button').setAttribute('aria-expanded','false');});
