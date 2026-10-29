@@ -201,7 +201,7 @@ addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;mActive=true;},{pas
 document.addEventListener('pointerleave',()=>{mActive=false;mx=my=-9999;});
 
 let progress=0, drift=0, time=0, last=performance.now();
-const geom=()=>{const wide=W>860;return {cx:wide?W*.64:W*.5, cy:wide?H*.5:H*.34, S:wide?Math.min(W*.22,H*.36):Math.min(W*.38,H*.21)};};
+const geom=()=>{const wide=W>860;return {cx:wide?W*.64:W*.5, cy:wide?H*.5:H*.29, S:wide?Math.min(W*.22,H*.36):Math.min(W*.3,H*.16)};};
 function rotY(x,z,a){const c=Math.cos(a),s=Math.sin(a);return [x*c+z*s,-x*s+z*c];}
 function rotX(y,z,b){const c=Math.cos(b),s=Math.sin(b);return [y*c-z*s,y*s+z*c];}
 const proj=(x,y,z,g)=>{const p=2.8/(2.8+z);return [g.cx+x*g.S*p,g.cy-y*g.S*p];};
@@ -258,14 +258,15 @@ function frame(now){
 
   const lab=1-dz*2, wt=n=>(n===i?1-t:(n===i+1?t:0))*lab;
   ctx.font=`500 ${small?9:11}px ${MONO}`; ctx.textAlign='left';
-  const w1=wt(1); if(w1>.6){const a=((w1-.6)/.4*.8).toFixed(2);
+  const tiny=W<560;
+  const w1=tiny?0:wt(1); if(w1>.6){const a=((w1-.6)/.4*.8).toFixed(2);
     label(1,-.95*.82,.62*.82,.03,g,'Image',a,'rgba(154,154,150,A)');
     label(1,.15*.82,.68*.82,.03,g,'Two-column grid',a,'rgba(242,242,239,A)');}
-  const w2=wt(2); if(w2>.6){const a=((w2-.6)/.4*.8).toFixed(2);
+  const w2=tiny?0:wt(2); if(w2>.6){const a=((w2-.6)/.4*.8).toFixed(2);
     label(2,-.6*.88,.66*.88,0,g,'Filters',a,'rgba(242,242,239,A)');
     label(2,.35*.88,.47*.88,0,g,'Customer data',a,'rgba(242,242,239,A)');
     label(2,.6*.88,-.82*.88,-.35,g,'Chat assist',a,'rgba(255,59,29,A)');}
-  const w3=wt(3); if(w3>.6){const a=((w3-.6)/.4*.8).toFixed(2);
+  const w3=tiny?0:wt(3); if(w3>.6){const a=((w3-.6)/.4*.8).toFixed(2);
     [[.34,.98,'Button, primary'],[.12,.38,'Toggle'],[.06,-.42,'Colour tokens'],[.34,-.96,'Spacing, 8pt grid']].forEach(l=>label(3,l[0]-.08,l[1],-.36,g,l[2],a,'rgba(242,242,239,A)'));}
   const w4=wt(4); if(w4>.4){const a=(w4-.4)/.6; ctx.textAlign='center';
     FN.forEach(n=>{const [X1,Y1,Z1]=ROT[4](n[1]+.05,n[2]-.2,0);const p=proj(X1,Y1,Z1,g);ctx.fillStyle=`rgba(242,242,239,${.8*a})`;ctx.fillText(n[0],p[0],p[1]+4);});
