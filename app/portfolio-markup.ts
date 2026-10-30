@@ -2,13 +2,11 @@
 // behaviour (particles, scroll, menu, contact form, case list) in public/portfolio.js.
 export const markup = `
 <div id="bg" aria-hidden="true"></div>
-<canvas id="fx" aria-hidden="true"></canvas>
 <div class="grain" aria-hidden="true"></div>
-<div class="vignette" aria-hidden="true"></div>
 
 <header class="top">
-  <a href="#story" class="logo" aria-label="MARLBS, home">MARLBS</a>
-  <div class="toplinks"><a href="#now">Now</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Start a project</a>
+  <a href="#story" class="logo" aria-label="MARLBS, home">M<span class="hl">A</span>R<span class="hl">L</span>BS</a>
+  <div class="toplinks"><a href="#now">Process</a><a href="#work">Work</a><a href="#contact">Start a project</a>
   <button class="menu-btn pillbg" id="burger" aria-expanded="false" aria-controls="menu"><span></span>Menu</button></div>
 </header>
 
@@ -17,9 +15,8 @@ export const markup = `
   <nav aria-label="Main">
     <a href="#story">Journey</a>
     <a href="#about">About</a>
-    <a href="#now">Now</a>
+    <a href="#now">Process</a>
     <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
   <aside>
@@ -32,71 +29,131 @@ export const markup = `
 </div>
 
 <main>
+<div class="loader" id="loader" aria-hidden="true"><span id="loaderN">0</span>%</div>
+
 <section class="story" id="story" aria-label="My journey">
-  <div class="stage">
-    <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Mustafa Kapadiya, Senior UI/UX Product Designer</h1>
+  <div class="stage" id="stage">
+    <h1 class="sr">Mustafa Kapadiya, Senior UI/UX Product Designer in Dubai</h1>
+    <canvas class="stars" id="stars" aria-hidden="true"></canvas>
 
-    <nav class="chaps" id="chaps" aria-label="Journey chapters">
-      <button data-c="0"><b>Hello</b><i></i></button>
-      <button data-c="1"><b>Pune, 2011</b><i></i></button>
-      <button data-c="2"><b>Enterprise, 2016</b><i></i></button>
-      <button data-c="3"><b>Government, 2023</b><i></i></button>
-      <button data-c="4"><b>Dubai, 2024</b><i></i></button>
-      <button data-c="5"><b>Now</b><i></i></button>
-      <button data-c="6"><b>Worldwide</b><i></i></button>
-    </nav>
+    <div class="htrack" id="htrack">
 
-    <div class="scene s0" data-scene="0">
-      <p><strong>Senior UI/UX Product Designer</strong> in Dubai. A fifteen-year route from print layouts in Pune to enterprise, government and AI products used worldwide.</p>
-      <span class="hint"><i></i>Scroll to follow the journey</span>
+      <!-- 00 · Hello -->
+      <div class="hpanel h-hero" data-label="Hello">
+        <p class="hero-intro blur-in">Mustafa Kapadiya, Senior UI/UX Product Designer in Dubai.</p>
+        <p class="hero-side blur-in">Articulation with logic. Designing since 2011.</p>
+        <p class="hero-word" id="heroWord" aria-hidden="true"><span class="hw-t">M<span class="hl">A</span>R<span class="hl">L</span>BS</span></p>
+        <span class="hero-hint" aria-hidden="true"><i></i>Scroll to follow the journey</span>
+      </div>
+
+      <!-- 01 · Statement -->
+      <div class="hpanel h-statement" data-label="About">
+        <div class="pin">
+          <p class="set-kick blur-in"><b>00</b> / The route</p>
+          <h2 class="t-l split">Articulation, with logic.</h2>
+          <p class="statement-body split">A fifteen-year route from print layouts in Pune to enterprise, government and AI products used worldwide. Product design at the level of logic, flow and form.</p>
+        </div>
+      </div>
+
+      <!-- 02 · 2011 -->
+      <article class="hpanel h-set" data-label="Pune, 2011" data-chap="1">
+        <div class="pin">
+          <div class="set-copy">
+            <p class="set-kick blur-in"><b>01</b> / Pune, where it started</p>
+            <h2 class="t-m split">Craft before code.</h2>
+            <p class="set-body split">Four years in creative at AffinityX, then leading design at Digital Convergence Technologies. Grids, typography and pixel-perfect layouts: the habits that still shape every screen I make.</p>
+          </div>
+          <div class="set-side">
+            <span class="set-year" aria-hidden="true">2011</span>
+            <dl class="set-meta"><div><dt>Where</dt><dd>Pune, India</dd></div><div><dt>Studios</dt><dd>AffinityX, DCT</dd></div><div><dt>Focus</dt><dd>Layout and type</dd></div></dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 · 2016 -->
+      <article class="hpanel h-set" data-label="Enterprise, 2016" data-chap="2">
+        <div class="pin">
+          <div class="set-copy">
+            <p class="set-kick blur-in"><b>02</b> / Tech Mahindra</p>
+            <h2 class="t-m split">Enterprise data, made usable.</h2>
+            <p class="set-body split">At Tech Mahindra I led UX for AT&amp;T, T-Mobile and EY: a CRM portal for customer data at scale, a payment rule engine, and chatbot-assisted finance workflows.</p>
+          </div>
+          <div class="set-side">
+            <span class="set-year" aria-hidden="true">2016</span>
+            <dl class="set-meta"><div><dt>Clients</dt><dd>AT&amp;T, T-Mobile, EY</dd></div><div><dt>Built</dt><dd>CRM, rule engine, chatbots</dd></div><div><dt>System</dt><dd>SAP Fiori</dd></div></dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 · 2023 -->
+      <article class="hpanel h-set" data-label="Government, 2023" data-chap="3">
+        <div class="pin">
+          <div class="set-copy">
+            <p class="set-kick blur-in"><b>03</b> / My first government work</p>
+            <h2 class="t-m split">Systems before screens.</h2>
+            <p class="set-body split">With Conceptualize, I designed and delivered the UAE Government Design System 2.0 with TDRA, and the traffic control CRM portal for Abu Dhabi Mobility: foundations, components and accessibility rules built for federal adoption.</p>
+          </div>
+          <div class="set-side">
+            <span class="set-year" aria-hidden="true">2023</span>
+            <dl class="set-meta"><div><dt>With</dt><dd>TDRA, TAMM</dd></div><div><dt>Built</dt><dd>Design System 2.0</dd></div><div><dt>Live</dt><dd>designsystem.gov.ae</dd></div></dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 · 2024 -->
+      <article class="hpanel h-set" data-label="Dubai, 2024" data-chap="4">
+        <div class="pin">
+          <div class="set-copy">
+            <p class="set-kick blur-in"><b>04</b> / The move to Dubai</p>
+            <h2 class="t-m split">Journeys that survive compliance.</h2>
+            <p class="set-body split">In December 2024 I moved to Dubai to lead UX for MOHRE: submission, approval and status-tracking journeys across web and mobile, designed so every branch of a government service still feels simple.</p>
+          </div>
+          <div class="set-side">
+            <span class="set-year" aria-hidden="true">2024</span>
+            <dl class="set-meta"><div><dt>Client</dt><dd>MOHRE</dd></div><div><dt>Platform</dt><dd>Web and mobile</dd></div><div><dt>Focus</dt><dd>Service design</dd></div></dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 · 2025 -->
+      <article class="hpanel h-set" data-label="Now" data-chap="5">
+        <div class="pin">
+          <div class="set-copy">
+            <p class="set-kick blur-in"><b>05</b> / Dubai Sotheby’s, since August 2025</p>
+            <h2 class="t-m split">AI and CRM, wired together.</h2>
+            <p class="set-body split">Today I design the Agent App for UHNW property and the lead journeys around it, with HubSpot to capture and nurture, AI to summarise and suggest, and a person always making the final call.</p>
+          </div>
+          <div class="set-side">
+            <span class="set-year" aria-hidden="true">2025</span>
+            <dl class="set-meta"><div><dt>Stack</dt><dd>Salesforce, HubSpot</dd></div><div><dt>Partner</dt><dd>Claude, Figma</dd></div><div><dt>Rule</dt><dd>A person decides</dd></div></dl>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 · Worldwide -->
+      <div class="hpanel h-outro" data-label="Worldwide" data-chap="6">
+        <div class="pin">
+          <div class="set-copy">
+            <p class="set-kick blur-in"><b>06</b> / Worldwide</p>
+            <h2 class="t-m split">From Pune to the world<span class="o-dot" aria-hidden="true"></span></h2>
+          </div>
+          <div class="outro-side">
+            <ul class="outro-list"><li>United Arab Emirates</li><li>Saudi Arabia</li><li>United Kingdom</li><li>United States</li><li>India</li></ul>
+            <p class="outro-note">Products used across five countries. Every route, a team I designed with.</p>
+            <a class="outro-cta" href="#work">See the work <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="scene panel" data-scene="1">
-      <div class="idx"><b>2011</b><span>Pune, where it started</span></div>
-      <h2 class="display"><span class="dim">Craft</span> before code.</h2>
-      <p>Four years in creative at AffinityX, then leading design at Digital Convergence Technologies. Grids, typography and pixel-perfect layouts: the habits that still shape every screen I make.</p>
-      <div class="chips"><span>AffinityX</span><span>DCT</span><span>Layout and type</span></div>
-    </div>
-
-    <div class="scene panel" data-scene="2">
-      <div class="idx"><b>2016</b><span>Tech Mahindra</span></div>
-      <h2 class="display"><span class="dim">Enterprise data,</span> made usable.</h2>
-      <p>At Tech Mahindra I led UX for AT&amp;T, T-Mobile and EY: a CRM portal for customer data at scale, a payment rule engine, and chatbot-assisted finance workflows.</p>
-      <div class="chips"><span>AT&amp;T</span><span>T-Mobile</span><span>EY</span><span>SAP Fiori</span></div>
-    </div>
-
-    <div class="scene panel" data-scene="3">
-      <div class="idx"><b>2023</b><span>My first government work</span></div>
-      <h2 class="display"><span class="dim">Systems</span> before screens.</h2>
-      <p>With Conceptualize, I designed and delivered the UAE Government Design System 2.0 with TDRA, and the traffic control CRM portal for Abu Dhabi Mobility: foundations, components and accessibility rules built for federal adoption.</p>
-      <div class="chips"><span>designsystem.gov.ae</span><span>TDRA</span><span>TAMM</span></div>
-    </div>
-
-    <div class="scene panel" data-scene="4">
-      <div class="idx"><b>2024</b><span>The move to Dubai</span></div>
-      <h2 class="display"><span class="dim">Journeys that</span> survive compliance.</h2>
-      <p>In December 2024 I moved to Dubai to lead UX for MOHRE, the Ministry of Human Resources and Emiratisation: submission, approval and status-tracking journeys across web and mobile, designed so every branch of a government service still feels simple.</p>
-      <div class="chips"><span>MOHRE</span><span>Web + mobile</span><span>Service design</span></div>
-    </div>
-
-    <div class="scene panel" data-scene="5">
-      <div class="idx"><b>2025</b><span>Dubai Sotheby’s, since August</span></div>
-      <h2 class="display"><span class="dim">AI and CRM,</span> wired together.</h2>
-      <p>Today I design the Agent App for UHNW property and the lead journeys around it, with HubSpot to capture and nurture, AI to summarise and suggest, and a person always making the final call.</p>
-      <div class="chips"><span>Salesforce</span><span>HubSpot</span><span>Claude</span><span>Figma</span></div>
-    </div>
-
-    <div class="scene panel" data-scene="6">
-      <div class="idx"><b>Next</b><span>Worldwide</span></div>
-      <h2 class="display"><span class="dim">From Pune</span> to the world.</h2>
-      <p>Products used across the UAE, Saudi Arabia, the UK, the US and India. Every route on this globe is a team I designed with.</p>
-      <div class="chips"><span>UAE</span><span>KSA</span><span>UK</span><span>USA</span><span>India</span></div>
-    </div>
+    <nav class="chaps" id="chaps" aria-label="Journey chapters"><span class="chaps-line" aria-hidden="true"><i class="chaps-fill" id="chapsFill"></i></span></nav>
+    <span class="period" id="period" aria-hidden="true"></span>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="wrap" id="about" data-bg="#1B1B19">
+<section class="wrap" id="about" data-bg="#0C0C0B">
   <p class="tag">/ About</p>
   <div class="about">
     <div>
@@ -121,18 +178,10 @@ export const markup = `
 </div></div>
 
 <!-- NOW -->
-<section class="wrap" id="now" data-bg="#161615">
-  <div class="now-head">
-    <div><p class="tag">/ What I’m doing now</p><h2 class="display big"><span class="dim">One lead,</span> five moments.</h2></div>
-    <p>At Dubai Sotheby’s I design the tools agents use every day. Around that work I design the whole lead journey: HubSpot to capture and nurture, AI to take on the busywork, and a person in charge of every decision that matters. Pick a moment to see what I design there.</p>
-  </div>
-  <div class="pipe" id="pipe" role="tablist" aria-label="Lead journey">
-    <span class="fillline" id="pfill"></span><span class="runner" id="prun" aria-hidden="true"></span>
-  </div>
-  <div class="ppanel" id="ppanel" role="tabpanel" aria-live="polite"></div>
-
+<section class="wrap" id="now" data-bg="#0C0C0B">
   <div class="with">
     <div>
+      <p class="tag">/ Process</p>
       <h3><span class="dim">How AI fits</span> into my process.</h3>
       <p>I use Claude as a design partner, not a shortcut. It speeds up the slow parts so more of my time goes to judgement, taste and talking to users.</p>
     </div>
@@ -148,7 +197,7 @@ export const markup = `
 </section>
 
 <!-- WORK -->
-<section class="wrap" id="work" data-bg="#0F0F0E">
+<section class="wrap" id="work" data-bg="#0C0C0B">
   <div class="whead">
     <div><p class="tag">/ Selected work</p><h2 class="display big" style="margin:0 0 20px"><span class="dim">Selected</span> work.</h2></div>
     <p>Projects across real estate, finance, telecoms and government. Open one to see what was designed.</p>
@@ -156,27 +205,8 @@ export const markup = `
   <ul class="cases" id="cases"></ul>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="ledger" id="experience" data-bg="#1E1B17">
-  <div class="ledger-pin">
-    <div class="ledger-head">
-      <div><p class="tag">/ Experience</p><h2 class="display"><span class="dim">Fifteen years</span> in.</h2></div>
-      <div class="legend"><span><i style="background:var(--fg)"></i>Full-time</span><span><i style="background:repeating-linear-gradient(90deg,var(--lilac) 0 5px,transparent 5px 8px)"></i>Freelance</span></div>
-    </div>
-    <div class="track" id="track">
-      <div class="step"><span class="city">Pune</span><div class="when">2011</div><div class="until">Feb 2011 to Jun 2015</div><h3>AffinityX</h3><p>Associate Manager, Creative</p></div>
-      <div class="step"><span class="city">Pune</span><div class="when">2015</div><div class="until">Jul 2015 to Oct 2016</div><h3>Digital Convergence Technologies</h3><p>Design Lead</p></div>
-      <div class="step"><span class="city">India, then Dubai</span><div class="when">2016</div><div class="until">Nov 2016 to Jul 2025</div><h3>Tech Mahindra</h3><p>Lead UX Designer for AT&amp;T, T-Mobile and EY, then MOHRE in Dubai from December 2024</p></div>
-      <div class="step fl"><span class="city">Remote, USA</span><div class="when">2021</div><div class="until">Nov 2021 to Aug 2025</div><h3>PHP Agency Inc.</h3><p>Product Design Consultant</p></div>
-      <div class="step fl"><span class="city">Remote</span><div class="when">2023</div><div class="until">Mar 2023 to Dec 2024</div><h3>Conceptualize</h3><p>Interface and Interaction Designer: UAE Design System 2.0 with TDRA, and Abu Dhabi Mobility</p></div>
-      <div class="step"><span class="city">Dubai</span><div class="when">2025</div><div class="until">Aug 2025 to now</div><h3>Dubai Sotheby’s International Realty</h3><p>Senior UI/UX Product Designer, with AI and HubSpot in the workflow</p><span class="nowpill">Current role</span></div>
-    </div>
-    <div class="bar"><span id="bar"></span></div>
-  </div>
-</section>
-
 <!-- TOOLBOX -->
-<section class="wrap" id="toolbox" data-bg="#141413">
+<section class="wrap" id="toolbox" data-bg="#0C0C0B">
   <p class="tag">/ Toolbox</p>
   <h2 class="display big"><span class="dim">What</span> I bring.</h2>
   <div class="tool-grid">
@@ -192,7 +222,7 @@ export const markup = `
 </section>
 
 <!-- CONTACT -->
-<section class="wrap contact" id="contact" data-bg="#0F0F0E">
+<section class="wrap contact" id="contact" data-bg="#0C0C0B">
   <p class="tag">/ Contact</p>
   <h2 class="display"><span class="dim">Where</span> to next?</h2>
   <button class="mail" id="mail">mhkapadiya@gmail.com</button>
@@ -238,7 +268,7 @@ export const markup = `
       <button data-talk>New project</button><a href="tel:+971507572153">+971 50 757 2153</a><a href="tel:+918668272652">+91 866 827 2652</a><a href="mailto:mhkapadiya@gmail.com">mhkapadiya@gmail.com</a>
     </div>
   </div>
-  <div class="wordmark" id="wordmark" aria-label="MARLBS"><span>MARLBS</span></div>
+  <div class="wordmark" id="wordmark" aria-label="MARLBS"><span>M<span class="hl">A</span>R<span class="hl">L</span>BS</span></div>
   <div class="fbar"><span>© MARLBS 2026</span><span>Articulation · with · logic</span><span>Dubai · UAE</span></div>
 </footer>
 

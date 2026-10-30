@@ -7,6 +7,7 @@ export default function Home() {
     <>
       <div className="mk-root" dangerouslySetInnerHTML={{ __html: markup }} />
       <Script src="/portfolio.js" strategy="afterInteractive" />
+      <Script src="/work-reel.js" strategy="afterInteractive" />
     </>
   );
 }

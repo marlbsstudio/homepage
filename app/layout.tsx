@@ -1,21 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, Geist_Mono } from "next/font/google";
+import { Antonio } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-// brand-nw.com uses Suisse Int'l; Inter Tight is the closest free match.
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+// Tall condensed face for the case-study titles.
+const antonio = Antonio({
+  variable: "--font-antonio",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
+// Geist (sans + mono) ships with the site via the `geist` package: the clean grotesk
+// behind graysunderland.com, used for the journey reel and the display type.
 
 const title = "MARLBS · Mustafa Kapadiya, Senior UI/UX Product Designer, Dubai";
 const description =
@@ -47,7 +45,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0F0F0E",
+  themeColor: "#0C0C0B",
 };
 
 export default function RootLayout({
@@ -56,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${interTight.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${antonio.variable}`}>
       <body>{children}</body>
     </html>
   );
